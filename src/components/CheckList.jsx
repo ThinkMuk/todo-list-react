@@ -13,7 +13,7 @@ export default function CheckList({ todo, onDelete, onUpdate }) {
       <input
         type="checkbox"
         id="checkbox"
-        checked={status === "completed"} //여기서 checked는 어떤 경우에 checked되어 있어야 하는지를 물어보는것
+        checked={status === "completed"}
         onChange={handleChange}
       />
       <label htmlFor="checkbox">{text}</label>

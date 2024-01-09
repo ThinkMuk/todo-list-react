@@ -16,7 +16,6 @@ export default function TodoList() {
   const handleDelete = (deleted) => {
     setTodos(todos.filter((t) => t.id !== deleted.id));
   };
-  // 리스트들은 이름이 아닌 아이디로 찾는구나...
   return (
     <div>
       NavBar
