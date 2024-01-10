@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import AddTodo from "./AddTodo";
-import CheckList from "./CheckList";
+import CheckList from "../CheckList/CheckList";
+import AddTodo from "../AddTodo/AddTodo";
 
-export default function TodoList() {
+export default function TodoList({ filter }) {
   const [todos, setTodos] = useState([
     { id: 100, text: "공부", status: "active" },
     { id: 101, text: "놀기", status: "completed" },
@@ -16,11 +16,11 @@ export default function TodoList() {
   const handleDelete = (deleted) => {
     setTodos(todos.filter((t) => t.id !== deleted.id));
   };
+  const filtered = getFilteredItems(todos, filter);
   return (
     <div>
-      NavBar
       <section>
-        {todos.map((element) => {
+        {filtered.map((element) => {
           return (
             <CheckList
               key={element.id}
@@ -34,4 +34,11 @@ export default function TodoList() {
       </section>
     </div>
   );
+}
+
+function getFilteredItems(todos, filter) {
+  if (filter === "all") {
+    return todos;
+  }
+  return todos.filter((t) => t.status === filter);
 }

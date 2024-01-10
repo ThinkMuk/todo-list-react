@@ -12,11 +12,11 @@ export default function CheckList({ todo, onDelete, onUpdate }) {
     <li>
       <input
         type="checkbox"
-        id="checkbox"
+        id={todo.id}
         checked={status === "completed"}
         onChange={handleChange}
       />
-      <label htmlFor="checkbox">{text}</label>
+      <label htmlFor={todo.id}>{text}</label>
       <button onClick={handleDelete}>
         <BsFillTrash3Fill />
       </button>
