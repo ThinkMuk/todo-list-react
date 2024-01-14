@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CheckList from "../CheckList/CheckList";
 import AddTodo from "../AddTodo/AddTodo";
+import styles from "./TodoList.module.css";
 
 export default function TodoList({ filter }) {
   const [todos, setTodos] = useState([
@@ -18,21 +19,19 @@ export default function TodoList({ filter }) {
   };
   const filtered = getFilteredItems(todos, filter);
   return (
-    <div>
-      <section>
-        {filtered.map((element) => {
-          return (
-            <CheckList
-              key={element.id}
-              todo={element}
-              onUpdate={handleUpdate}
-              onDelete={handleDelete}
-            />
-          );
-        })}
-        <AddTodo onAdd={handleAdd} />
-      </section>
-    </div>
+    <section className={styles.container}>
+      <ul className={styles.list}>
+        {filtered.map((element) => (
+          <CheckList
+            key={element.id}
+            todo={element}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
+        ))}
+      </ul>
+      <AddTodo onAdd={handleAdd} />
+    </section>
   );
 }
 

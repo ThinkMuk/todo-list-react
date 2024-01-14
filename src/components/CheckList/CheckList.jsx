@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillTrash3Fill } from "react-icons/bs";
+import styles from "./CheckList.module.css";
 
 export default function CheckList({ todo, onDelete, onUpdate }) {
   const { text, status } = todo;
@@ -9,17 +10,22 @@ export default function CheckList({ todo, onDelete, onUpdate }) {
   };
   const handleDelete = () => onDelete(todo);
   return (
-    <li>
+    <li className={styles.checklist}>
       <input
+        className={styles.checkbox}
         type="checkbox"
         id={todo.id}
         checked={status === "completed"}
         onChange={handleChange}
       />
-      <label htmlFor={todo.id}>{text}</label>
-      <button onClick={handleDelete}>
-        <BsFillTrash3Fill />
-      </button>
+      <label htmlFor={todo.id} className={styles.text}>
+        {text}
+      </label>
+      <span className={styles.icon}>
+        <button onClick={handleDelete} className={styles.button}>
+          <BsFillTrash3Fill />
+        </button>
+      </span>
     </li>
   );
 }
