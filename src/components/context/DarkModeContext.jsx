@@ -33,4 +33,12 @@ function updateDarkMode(darkMode) {
     localStorage.theme = "light";
   }
 }
-export const useDarkMode = () => useContext(DarkModeContext);
+export const useDarkMode = () => {
+  const value = useContext(DarkModeContext);
+  if (value === undefined) {
+    throw new Error(
+      "DarkModeContext should be used within DarkModeContext.Provider"
+    );
+  }
+  return value;
+};

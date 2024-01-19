@@ -18,7 +18,12 @@ export default function CheckList({ todo, onDelete, onUpdate }) {
         checked={status === "completed"}
         onChange={handleChange}
       />
-      <label htmlFor={todo.id} className={styles.text}>
+      <label
+        htmlFor={todo.id}
+        className={`${styles.text} ${
+          status === "completed" && styles.completed
+        }`}
+      >
         {text}
       </label>
       <span className={styles.icon}>

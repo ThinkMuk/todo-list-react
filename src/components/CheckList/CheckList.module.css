@@ -18,6 +18,14 @@
   font-size: 1.5rem;
 }
 
+.completed {
+  flex: 1 1 0%;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-grey);
+  text-decoration: line-through;
+}
+
 .icon {
   width: 26px;
   height: 26px;
