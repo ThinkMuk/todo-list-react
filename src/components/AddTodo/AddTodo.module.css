@@ -6,6 +6,7 @@
 }
 
 .input {
+  width: 1%;
   flex: 1 0 auto;
   font-size: 1.4rem;
   padding: 0.7rem 1rem;
